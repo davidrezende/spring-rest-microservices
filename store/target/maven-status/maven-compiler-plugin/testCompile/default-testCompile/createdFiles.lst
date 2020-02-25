@@ -1,0 +1,4 @@
+br\com\cabal\store\SipagApiApplicationTests.class
+br\com\cabal\store\StoreRepositoryTest.class
+br\com\cabal\store\StoreControllerTest.class
+br\com\cabal\store\IntegrationTest.class

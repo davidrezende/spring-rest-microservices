@@ -1,0 +1,6 @@
+br\com\cabal\store\constants\ValiteConstants.class
+br\com\cabal\store\constants\LogConstants.class
+br\com\cabal\store\SipagApiApplication.class
+br\com\cabal\store\service\StoreService.class
+br\com\cabal\store\docs\SwaggerConfig.class
+br\com\cabal\store\controller\StoreController.class
