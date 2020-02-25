@@ -24,4 +24,6 @@ HELP.md
 /nbdist/
 /.nb-gradle/
 /build/
-/store/target/
+/target/
+target/
+
