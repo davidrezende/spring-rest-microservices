@@ -1,9 +1,0 @@
-br\com\cabal\core\model\Address.class
-br\com\cabal\core\repository\StoreRepository.class
-br\com\cabal\core\constants\ValiteConstants.class
-br\com\cabal\core\model\ContactPhone.class
-br\com\cabal\core\model\Status.class
-br\com\cabal\core\docs\BaseSwaggerConfig.class
-br\com\cabal\core\model\PhoneType.class
-br\com\cabal\core\model\Store.class
-br\com\cabal\core\model\EmailAddress.class
