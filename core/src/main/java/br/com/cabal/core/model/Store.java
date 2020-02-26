@@ -1,8 +1,8 @@
 package br.com.cabal.core.model;
 
-import br.com.cabal.core.constants.ValiteConstants;
-import io.swagger.models.Contact;
+import br.com.cabal.core.constants.ValidateConstants;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -30,13 +30,14 @@ public class Store implements Serializable {
     @SequenceGenerator(name = "store_id_seq", sequenceName = "STORE_ID_SEQ", allocationSize = 100)
     private Long id;
 
-    @NotBlank(message = ValiteConstants.VALIDATE_NAME)
-    @Size(min = ValiteConstants.MIN_NAME_SIZE, max = ValiteConstants.MAX_NAME_SIZE, message = ValiteConstants.INVALID_SIZE)
+    @NotBlank(message = ValidateConstants.VALIDATE_NAME)
+    @Size(min = ValidateConstants.MIN_NAME_SIZE, max = ValidateConstants.MAX_NAME_SIZE, message = ValidateConstants.INVALID_SIZE)
     @Column(nullable = false)
     private String name;
 
-    @NotBlank(message = ValiteConstants.VALIDATE_CNPJ)
-    @Column(nullable = false)
+    @NotBlank(message = ValidateConstants.VALIDATE_CNPJ)
+    @CNPJ(message = ValidateConstants.VALIDATE_CNPJ_NOT_VALID)
+    @Column(nullable = false, unique = true)
     private String cnpj;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false)
@@ -49,21 +50,13 @@ public class Store implements Serializable {
     @Column(nullable = false)
     private Status isActive;
 
-/*
-	@OneToMany(mappedBy = "emailAddress")
-	private StoreEmails emails;
-
-	@OneToMany(mappedBy = "contactPhone")
-	private StorePhones phones;
-*/
-
-    @NotEmpty(message = ValiteConstants.VALIDATE_PHONE_AT_LEAST_ONE)
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "fk_store")
+    @NotEmpty(message = ValidateConstants.VALIDATE_PHONE_AT_LEAST_ONE)
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_store", nullable = false)
     private List<ContactPhone> phones;
 
-    @NotEmpty(message = ValiteConstants.VALIDATE_EMAIL_AT_LEAST_ONE)
-    @OneToMany(cascade = {CascadeType.ALL}) //(mappedBy = "store", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_store")
+    @NotEmpty(message = ValidateConstants.VALIDATE_EMAIL_AT_LEAST_ONE)
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_store",  nullable = false)
     private List<EmailAddress> emails;
 }

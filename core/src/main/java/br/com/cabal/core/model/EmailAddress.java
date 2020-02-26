@@ -1,7 +1,6 @@
 package br.com.cabal.core.model;
 
-import br.com.cabal.core.constants.ValiteConstants;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import br.com.cabal.core.constants.ValidateConstants;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,8 +21,8 @@ public class EmailAddress implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emailaddress_id_seq")
 	@SequenceGenerator(name = "emailaddress_id_seq", sequenceName = "EMAILADDRESS_ID_SEQ", allocationSize = 100)
 	private Long id;
-	@NotBlank(message = ValiteConstants.VALIDATE_EMAIL)
-	@Email(message = ValiteConstants.VALIDATE_EMAIL)
+	@NotBlank(message = ValidateConstants.VALIDATE_EMAIL)
+	@Email(message = ValidateConstants.VALIDATE_EMAIL)
 	@Column(nullable = false)
 	private String email;
 /*	@ManyToOne

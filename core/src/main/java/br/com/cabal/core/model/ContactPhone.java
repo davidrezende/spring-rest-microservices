@@ -1,7 +1,6 @@
 package br.com.cabal.core.model;
 
-import br.com.cabal.core.constants.ValiteConstants;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import br.com.cabal.core.constants.ValidateConstants;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,13 +24,13 @@ public class ContactPhone implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contactphone_id_seq")
 	@SequenceGenerator(name = "contactphone_id_seq", sequenceName = "CONTACTPHONE_ID_SEQ", allocationSize = 100)
 	private Long id;
-	@NotNull(message = ValiteConstants.VALIDATE_PHONE_TYPE)
+	@NotNull(message = ValidateConstants.VALIDATE_PHONE_TYPE)
 	@Column(nullable = false)
 	private PhoneType type;
 	@Column(nullable = false)
-	@NotNull(message = ValiteConstants.VALIDATE_PHONE)
+	@NotNull(message = ValidateConstants.VALIDATE_PHONE)
 	private int areaCode;
-	@NotNull(message = ValiteConstants.VALIDATE_PHONE)
+	@NotNull(message = ValidateConstants.VALIDATE_PHONE)
 	@Column(nullable = false)
 	private Long number;
 /*	@ManyToOne

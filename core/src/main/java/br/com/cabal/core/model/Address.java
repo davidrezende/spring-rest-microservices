@@ -1,6 +1,6 @@
 package br.com.cabal.core.model;
 
-import br.com.cabal.core.constants.ValiteConstants;
+import br.com.cabal.core.constants.ValidateConstants;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,16 +22,16 @@ public class Address implements Serializable {
 	@SequenceGenerator(name = "address_id_seq", sequenceName = "ADDRESS_ID_SEQ", allocationSize = 100)
 	private Long id;
 	//TODO VALIDAR COM API DOS CORREIOS
-	@NotNull(message = ValiteConstants.VALIDATE_ZIPCODE)
+	@NotNull(message = ValidateConstants.VALIDATE_ZIPCODE)
 	@Column(nullable = false)
 	private Long zipCode;
-	@NotBlank(message = ValiteConstants.VALIDATE_STATE)
+	@NotBlank(message = ValidateConstants.VALIDATE_STATE)
 	@Column(nullable = false)
 	private String state;
-	@NotBlank(message = ValiteConstants.VALIDATE_CITY)
+	@NotBlank(message = ValidateConstants.VALIDATE_CITY)
 	@Column(nullable = false)
 	private String city;
-	@NotBlank(message = ValiteConstants.VALIDATE_STREETNAME)
+	@NotBlank(message = ValidateConstants.VALIDATE_STREETNAME)
 	@Column(nullable = false)
 	private String streetName;
 	private String aditionalInfo;

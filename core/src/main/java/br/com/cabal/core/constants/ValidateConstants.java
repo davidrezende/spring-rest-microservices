@@ -1,8 +1,9 @@
 package br.com.cabal.core.constants;
 
-public final class ValiteConstants {
+public final class ValidateConstants {
 	public static final String VALIDATE_NAME 	      = "Store name is mandatory";
 	public static final String VALIDATE_CNPJ 	      = "Store CNPJ is mandatory";
+	public static final String VALIDATE_CNPJ_NOT_VALID 	      = "Store CNPJ is not valid";
 	public static final String VALIDATE_ADDRESS       = "Address is mandatory";
 	public static final String VALIDATE_PHONE 	      = "Phone is mandatory";
 	public static final String VALIDATE_EMAIL 	      = "Email is mandatory";
