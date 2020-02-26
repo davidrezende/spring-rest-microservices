@@ -63,4 +63,11 @@ public class StoreController {
 		return new ResponseEntity<>(storeRepository.save(store), HttpStatus.CREATED);
 	}
 
+	@GetMapping(path = "/find/{name}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ApiOperation(value = "Find store by name", response = ResponseEntity.class)
+	@ResponseBody
+	public ResponseEntity<?> findByName(@PathVariable String name){
+		return new ResponseEntity<>(storeRepository.findByName(name), HttpStatus.CREATED);
+	}
+
 }
