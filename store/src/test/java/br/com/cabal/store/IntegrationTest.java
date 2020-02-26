@@ -29,6 +29,6 @@ public class IntegrationTest {
 
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 		assertThat(response.getBody().getName()).isEqualTo("marketTest");
-		assertThat(response.getBody().getCpnj()).isEqualTo("99999999999999");
+		assertThat(response.getBody().getCnpj()).isEqualTo("99999999999999");
 	}
 }

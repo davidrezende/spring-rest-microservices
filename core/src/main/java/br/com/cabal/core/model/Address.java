@@ -1,17 +1,15 @@
 package br.com.cabal.core.model;
 
 import br.com.cabal.core.constants.ValiteConstants;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-
+@Builder
+@ToString
 @Entity
 @Getter
 @Setter

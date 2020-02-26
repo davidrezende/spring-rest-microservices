@@ -50,7 +50,6 @@ public class StoreController {
 		return new ResponseEntity<>(storeService.list(pageable), HttpStatus.OK);
 	}
 
-
 	@GetMapping(path = "/list",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ApiOperation(value = "List all stores", response = Store[].class)
 	public ResponseEntity<List<Store>> listAll(){
@@ -61,7 +60,6 @@ public class StoreController {
 	@Transactional(rollbackFor = Exception.class)
 	@ApiOperation(value = "Save object store", response = ResponseEntity.class)
 	public ResponseEntity<?> save(@Valid @RequestBody Store store){
-		System.out.println("cnpj:" + (store.getCpnj() + " to string + "+ store.toString()));
 		return new ResponseEntity<>(storeRepository.save(store), HttpStatus.CREATED);
 	}
 

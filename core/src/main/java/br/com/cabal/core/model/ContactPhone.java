@@ -1,16 +1,15 @@
 package br.com.cabal.core.model;
 
 import br.com.cabal.core.constants.ValiteConstants;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-
+@ToString
+@Builder
 @Entity
 @Getter
 @Setter
@@ -35,9 +34,10 @@ public class ContactPhone implements Serializable {
 	@NotNull(message = ValiteConstants.VALIDATE_PHONE)
 	@Column(nullable = false)
 	private Long number;
-	@ManyToOne(fetch=FetchType.LAZY)
+/*	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name="STORE_ID", nullable = false)
-	private Store store; 
+	private Store store; */
 	 
 }
  

@@ -35,22 +35,22 @@ public class StoreRepositoryTest {
 	public void createShouldPersistData() {
 		Store store = new Store();
 		store.setAddress(new Address(null, 70675120L, "DF", "Brasilia", "W3", "Apto"));
-		store.setCpnj("99999999999999");
+		store.setCnpj("99999999999999");
 		store.setInclusionDate(new Date());
 		store.setIsActive(Status.REGISTER_ACTIVE);
 		store.setLastUpdated(new Date());
 		store.setName("StoreTest");
-		List<EmailAddress> listEmails = new ArrayList<EmailAddress>();
-		listEmails.add(new EmailAddress(null, "test@test.com", new Store()));
-		store.setEmails(listEmails);
-		List<ContactPhone> listPhones = new ArrayList<ContactPhone>();
-		listPhones.add(new ContactPhone(null, PhoneType.HOME_PHONE, 31, 34752566L, new Store()));
-		store.setPhones(listPhones);
+	//	List<EmailAddress> listEmails = new ArrayList<EmailAddress>();
+	//	listEmails.add(new EmailAddress(null, "test@test.com", new Store()));
+	//	store.setEmails(listEmails);
+	//	List<ContactPhone> listPhones = new ArrayList<ContactPhone>();
+	//	listPhones.add(new ContactPhone(null, PhoneType.HOME_PHONE, 31, 34752566L, new Store()));
+	//	store.setPhones(listPhones);
 
 		this.storeRepository.save(store);
 		assertThat(store.getId()).isNotNull();
 		assertThat(store.getName()).isEqualTo("StoreTest");
-		assertThat(store.getCpnj()).isNotNull();
+		assertThat(store.getCnpj()).isNotNull();
 		assertThat(store.getEmails()).isNotNull();
 		assertThat(store.getIsActive()).isNotNull();
 		assertThat(store.getInclusionDate()).isNotNull();

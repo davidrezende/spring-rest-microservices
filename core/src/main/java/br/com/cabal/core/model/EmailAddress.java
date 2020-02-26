@@ -1,16 +1,16 @@
 package br.com.cabal.core.model;
 
 import br.com.cabal.core.constants.ValiteConstants;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
+@ToString
+@Builder
 @Entity
 @Getter
 @Setter
@@ -26,7 +26,8 @@ public class EmailAddress implements Serializable {
 	@Email(message = ValiteConstants.VALIDATE_EMAIL)
 	@Column(nullable = false)
 	private String email;
-	@ManyToOne(fetch=FetchType.LAZY)
+/*	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name="STORE_ID", nullable = false)
-	private Store store; 
+	private Store store; */
 }
