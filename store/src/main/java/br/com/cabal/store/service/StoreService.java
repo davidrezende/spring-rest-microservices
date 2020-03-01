@@ -32,4 +32,14 @@ public class StoreService {
 		return storeRepository.findAll();
 	}
 
+	public Store save(Store store){
+		log.info(LogConstants.SAVE_STORE);
+		return storeRepository.save(store);
+	}
+
+	public Store update(Store store){
+		log.info(LogConstants.UPDATE_STORE);
+		return storeRepository.save(store);
+	}
+
 }

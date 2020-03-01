@@ -1,12 +1,10 @@
 package br.com.cabal.store.controller;
 
 import java.util.List;
-
 import br.com.cabal.core.model.Store;
 import br.com.cabal.core.repository.StoreRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import br.com.cabal.store.service.StoreService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import javax.validation.Valid;
 
 @RestController
@@ -51,7 +48,7 @@ public class StoreController {
 	}
 
 	@GetMapping(path = "/list",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ApiOperation(value = "List all stores", response = Store[].class)
+	@ApiOperation(value = "List all stores in list format", response = Store[].class)
 	public ResponseEntity<List<Store>> listAll(){
 		return new ResponseEntity<List<Store>>(storeService.list(), HttpStatus.OK);
 	}
@@ -59,8 +56,15 @@ public class StoreController {
 	@PostMapping(path = "/save",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@Transactional(rollbackFor = Exception.class)
 	@ApiOperation(value = "Save object store", response = ResponseEntity.class)
-	public ResponseEntity<?> save(@Valid @RequestBody Store store){
-		return new ResponseEntity<>(storeRepository.save(store), HttpStatus.CREATED);
+	public ResponseEntity<Store> save(@RequestBody @Valid Store store){
+		return new ResponseEntity<>(storeService.save(store), HttpStatus.CREATED);
+	}
+
+	@PostMapping(path = "/update",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@Transactional(rollbackFor = Exception.class)
+	@ApiOperation(value = "Update object store", response = ResponseEntity.class)
+	public ResponseEntity<?> update(@RequestBody @Valid Store store){
+		return new ResponseEntity<>(storeService.update(store), HttpStatus.CREATED);
 	}
 
 	@GetMapping(path = "/find/{name}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

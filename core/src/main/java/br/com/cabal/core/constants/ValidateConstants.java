@@ -19,4 +19,6 @@ public final class ValidateConstants {
 	public static final int MAX_NAME_SIZE = 100;
 	
 	public static final String INVALID_SIZE =  "Invalid content size";
+
+	public static final String VALIDATE_DEFAULT_ERROR =  "Invalid Data";
 }
