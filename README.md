@@ -1,1 +1,1 @@
-# Spring Boot + Security + Cloud + Data - JPA, Hibernate e H2 Database
+# Spring Boot + Security + Cloud + Data JPA, Hibernate & H2 Database
