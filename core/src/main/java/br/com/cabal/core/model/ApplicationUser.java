@@ -21,7 +21,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "tb_user")
 public class ApplicationUser implements Serializable {
     /**
      *
@@ -36,6 +35,7 @@ public class ApplicationUser implements Serializable {
     @Column(nullable = false)
     private String username;
 
+    @ToString.Exclude
     @NotBlank(message = ValidateConstants.VALIDATE_USER_PASSWORD)
     @Column(nullable = false)
     private String password;

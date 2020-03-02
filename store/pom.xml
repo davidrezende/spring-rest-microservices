@@ -13,13 +13,14 @@
     <artifactId>store</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>store</name>
-    <description>microservices sipag</description>
+    <description>microservices</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>br.com.cabal</groupId>
             <artifactId>core</artifactId>
