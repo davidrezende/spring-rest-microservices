@@ -9,5 +9,7 @@ import java.util.List;
 
 public interface StoreRepository extends PagingAndSortingRepository<Store, Long>{
 	List<Store> findByName(String name);
+	Store findByCnpj(String name);
+	List<Store> findByNameLike(String name);
 	List<Store> findAll();
 }
