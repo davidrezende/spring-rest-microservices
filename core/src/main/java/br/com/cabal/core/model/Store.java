@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.br.CNPJ;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
@@ -40,6 +41,7 @@ public class Store implements Serializable {
     @Column(nullable = false, unique = true)
     private String cnpj;
 
+    @NotNull(message = ValidateConstants.VALIDATE_ADDRESS)
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     private Address address;
 
