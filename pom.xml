@@ -25,6 +25,7 @@
     <modules>
         <module>store</module>
         <module>core</module>
+        <module>token</module>
     </modules>
 
     <dependencies>
