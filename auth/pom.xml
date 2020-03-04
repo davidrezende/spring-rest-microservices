@@ -16,9 +16,15 @@
     <properties>
         <java.version>1.8</java.version>
         <core.version>1.0-SNAPSHOT</core.version>
+        <token.version>1.0-SNAPSHOT</token.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>br.com.cabal</groupId>
+            <artifactId>token</artifactId>
+            <version>${token.version}</version>
+        </dependency>
         <dependency>
             <groupId>br.com.cabal</groupId>
             <artifactId>core</artifactId>
